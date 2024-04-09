@@ -493,7 +493,7 @@ function createProxy<T>(
       })();
       return true;
     },
-    async apply(_target, _thisArg, rawArgumentList) {
+    apply(_target, _thisArg, rawArgumentList) {
       throwIfProxyReleased(isProxyReleased);
       const last = path[path.length - 1];
       if ((last as any) === createEndpoint) {
@@ -505,18 +505,20 @@ function createProxy<T>(
       if (last === "bind") {
         return createProxy(ep, path.slice(0, -1));
       }
-      const [argumentList, transferables] = await processArguments(
-        rawArgumentList
-      );
-      return requestResponseMessage(
-        ep,
-        {
-          type: MessageType.APPLY,
-          path: path.map((p) => p.toString()),
-          argumentList,
-        },
-        transferables
-      ).then(fromWireValue);
+      return (async () => {
+        const [argumentList, transferables] = await processArguments(
+          rawArgumentList
+        );
+        return requestResponseMessage(
+          ep,
+          {
+            type: MessageType.APPLY,
+            path: path.map((p) => p.toString()),
+            argumentList,
+          },
+          transferables
+        ).then(fromWireValue);
+      })();
     },
     async construct(_target, rawArgumentList) {
       throwIfProxyReleased(isProxyReleased);
