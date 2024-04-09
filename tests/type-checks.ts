@@ -357,11 +357,11 @@ async function closureSoICanUseAwait() {
         assert<IsExact<typeof val, unknown>>(true);
         return val instanceof URL;
       },
-      serialize: (url) => {
+      serialize: async (url) => {
         assert<IsExact<typeof url, URL>>(true);
         return [url.href, []];
       },
-      deserialize: (str) => {
+      deserialize: async (str) => {
         assert<IsExact<typeof str, string>>(true);
         return new URL(str);
       },
