@@ -520,20 +520,22 @@ function createProxy<T>(
         ).then(fromWireValue);
       })();
     },
-    async construct(_target, rawArgumentList) {
+    construct(_target, rawArgumentList) {
       throwIfProxyReleased(isProxyReleased);
-      const [argumentList, transferables] = await processArguments(
-        rawArgumentList
-      );
-      return requestResponseMessage(
-        ep,
-        {
-          type: MessageType.CONSTRUCT,
-          path: path.map((p) => p.toString()),
-          argumentList,
-        },
-        transferables
-      ).then(fromWireValue);
+      return (async () => {
+        const [argumentList, transferables] = await processArguments(
+          rawArgumentList
+        );
+        return requestResponseMessage(
+          ep,
+          {
+            type: MessageType.CONSTRUCT,
+            path: path.map((p) => p.toString()),
+            argumentList,
+          },
+          transferables
+        ).then(fromWireValue);
+      })();
     },
   });
   registerProxy(proxy, ep);
