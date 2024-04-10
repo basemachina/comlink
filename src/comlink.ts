@@ -209,12 +209,12 @@ export interface TransferHandler<T, S> {
 const proxyTransferHandler: TransferHandler<object, MessagePort> = {
   canHandle: (val): val is ProxyMarked =>
     isObject(val) && (val as ProxyMarked)[proxyMarker],
-  async serialize(obj) {
+  serialize(obj) {
     const { port1, port2 } = new MessageChannel();
     expose(obj, port1);
     return [port2, [port2]];
   },
-  async deserialize(port) {
+  deserialize(port) {
     port.start();
     return wrap(port);
   },
@@ -237,7 +237,7 @@ const throwTransferHandler: TransferHandler<
 > = {
   canHandle: (value): value is ThrownValue =>
     isObject(value) && throwMarker in value,
-  async serialize({ value }) {
+  serialize({ value }) {
     let serialized: SerializedThrownValue;
     if (value instanceof Error) {
       serialized = {
