@@ -193,14 +193,14 @@ export interface TransferHandler<T, S> {
    * value that can be sent in a message, consisting of structured-cloneable
    * values and/or transferrable objects.
    */
-  serialize(value: T): Promise<[S, Transferable[]]>;
+  serialize(value: T): Promise<[S, Transferable[]]> | [S, Transferable[]];
 
   /**
    * Gets called to deserialize an incoming value that was serialized in the
    * other thread with this transfer handler (known through the name it was
    * registered under).
    */
-  deserialize(value: S): Promise<T>;
+  deserialize(value: S): Promise<T> | T;
 }
 
 /**
