@@ -1,11 +1,11 @@
-# Comlink
+# Forked comlink written by BaseMachina Inc.
 
 Comlink makes [WebWorkers][webworker] enjoyable. Comlink is a **tiny library (1.1kB)**, that removes the mental barrier of thinking about `postMessage` and hides the fact that you are working with workers.
 
 At a more abstract level it is an RPC implementation for `postMessage` and [ES6 Proxies][es6 proxy].
 
 ```
-$ npm install --save comlink
+$ npm install --save @basemachina/comlink
 ```
 
 ![Comlink in action](https://user-images.githubusercontent.com/234957/54164510-cdab2d80-4454-11e9-92d0-7356aa6c5746.png)
@@ -36,7 +36,7 @@ Comlink turns this messaged-based API into a something more developer-friendly b
 **main.js**
 
 ```javascript
-import * as Comlink from "https://unpkg.com/comlink/dist/esm/comlink.mjs";
+import * as Comlink from "https://unpkg.com/@basemachina/comlink/dist/esm/comlink.mjs";
 async function init() {
   const worker = new Worker("worker.js");
   // WebWorkers use `postMessage` and therefore work with Comlink.
@@ -51,7 +51,7 @@ init();
 **worker.js**
 
 ```javascript
-importScripts("https://unpkg.com/comlink/dist/umd/comlink.js");
+importScripts("https://unpkg.com/@basemachina/comlink/dist/umd/comlink.js");
 // importScripts("../../../dist/umd/comlink.js");
 
 const obj = {
@@ -69,7 +69,7 @@ Comlink.expose(obj);
 **main.js**
 
 ```javascript
-import * as Comlink from "https://unpkg.com/comlink/dist/esm/comlink.mjs";
+import * as Comlink from "https://unpkg.com/@basemachina/comlink/dist/esm/comlink.mjs";
 // import * as Comlink from "../../../dist/esm/comlink.mjs";
 function callback(value) {
   alert(`Result: ${value}`);
@@ -84,7 +84,7 @@ init();
 **worker.js**
 
 ```javascript
-importScripts("https://unpkg.com/comlink/dist/umd/comlink.js");
+importScripts("https://unpkg.com/@basemachina/comlink/dist/umd/comlink.js");
 // importScripts("../../../dist/umd/comlink.js");
 
 async function remoteFunction(cb) {
@@ -106,7 +106,7 @@ When using Comlink with a [`SharedWorker`](https://developer.mozilla.org/en-US/d
 **main.js**
 
 ```javascript
-import * as Comlink from "https://unpkg.com/comlink/dist/esm/comlink.mjs";
+import * as Comlink from "https://unpkg.com/@basemachina/comlink/dist/esm/comlink.mjs";
 async function init() {
   const worker = new SharedWorker("worker.js");
   /**
@@ -124,7 +124,7 @@ init();
 **worker.js**
 
 ```javascript
-importScripts("https://unpkg.com/comlink/dist/umd/comlink.js");
+importScripts("https://unpkg.com/@basemachina/comlink/dist/umd/comlink.js");
 // importScripts("../../../dist/umd/comlink.js");
 
 const obj = {
