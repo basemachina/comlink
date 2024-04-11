@@ -1,4 +1,9 @@
-# Comlink
+# Forked comlink written by BaseMachina Inc.
+
+original: GoogleChromeLabs/comlink
+Thanks Surma and other contributors!
+
+# About Comlink
 
 Comlink makes [WebWorkers][webworker] enjoyable. Comlink is a **tiny library (1.1kB)**, that removes the mental barrier of thinking about `postMessage` and hides the fact that you are working with workers.
 
