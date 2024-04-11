@@ -1,5 +1,13 @@
 # Forked comlink written by BaseMachina Inc.
 
+The following are the main changes that have been made.
+
+## Changes
+
+- Can use async function for `serialize`/`deserialize` of transfer handler.
+
+# About Comlink
+
 Comlink makes [WebWorkers][webworker] enjoyable. Comlink is a **tiny library (1.1kB)**, that removes the mental barrier of thinking about `postMessage` and hides the fact that you are working with workers.
 
 At a more abstract level it is an RPC implementation for `postMessage` and [ES6 Proxies][es6 proxy].
