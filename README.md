@@ -1,12 +1,14 @@
 # Comlink
 
+This repository is a fork of [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink).
+
 The following are the main changes that have been made.
 
 ## Changes
 
 - Can use async function for `serialize`/`deserialize` of transfer handler.
 
-# About Comlink
+## About Comlink
 
 Comlink makes [WebWorkers][webworker] enjoyable. Comlink is a **tiny library (1.1kB)**, that removes the mental barrier of thinking about `postMessage` and hides the fact that you are working with workers.
 
