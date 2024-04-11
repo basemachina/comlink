@@ -1,6 +1,6 @@
 # Forked comlink written by BaseMachina Inc.
 
-original: GoogleChromeLabs/comlink
+original: [GoogleChromeLabs/comlink](https://github.com/GoogleChromeLabs/comlink)
 Thanks Surma and other contributors!
 
 # About Comlink
