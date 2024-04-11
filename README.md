@@ -1,4 +1,4 @@
-# Forked comlink written by BaseMachina Inc.
+# Comlink
 
 The following are the main changes that have been made.
 
