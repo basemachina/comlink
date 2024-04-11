@@ -1,6 +1,7 @@
 /**
  * @license
- * Copyright 2019 Google LLC
+ * Copyright 2024-present BaseMachina Inc.
+ * Copyright 2019-2024 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
 
