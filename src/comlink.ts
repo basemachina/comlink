@@ -20,8 +20,7 @@ export const proxyMarker = Symbol("Comlink.proxy");
 export const createEndpoint = Symbol("Comlink.endpoint");
 export const releaseProxy = Symbol("Comlink.releaseProxy");
 export const finalizer = Symbol("Comlink.finalizer");
-
-const throwMarker = Symbol("Comlink.thrown");
+export const throwMarker = Symbol("Comlink.thrown");
 
 /**
  * Interface of values that were marked to be proxied with `comlink.proxy()`.
