@@ -1,6 +1,6 @@
 {
   "name": "@basemachina/comlink",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "A fork of GoogleChromeLabs/comlink.",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
